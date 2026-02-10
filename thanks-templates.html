@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You got it — Landing Page Template Pack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0a0a0c;
+  --bg-raised: #111116;
+  --bg-card: #16161c;
+  --border: #2a2a35;
+  --text: #e8e6e3;
+  --text-dim: #8a8a95;
+  --text-muted: #55555f;
+  --accent: #c8ff00;
+  --warm: #ff6b35;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+.card {
+  max-width: 600px;
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  padding: 56px 48px;
+  text-align: center;
+}
+.card::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--accent);
+  margin: 0 auto 32px;
+}
+.tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+h1 {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.sub {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.templates-list {
+  text-align: left;
+  margin-bottom: 40px;
+}
+.template-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  margin-bottom: 8px;
+  transition: border-color 0.2s;
+}
+.template-item:hover {
+  border-color: var(--accent);
+}
+.template-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.template-name {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+}
+.template-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.download-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.25s;
+  flex-shrink: 0;
+}
+.download-link:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+.formats {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 32px;
+}
+.note {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+.note a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.note a:hover { text-decoration: underline; }
+.heart { color: var(--warm); }
+@media (max-width: 480px) {
+  .card { padding: 40px 24px; }
+  .template-item { flex-direction: column; gap: 12px; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="tag">Purchase complete</div>
+  <h1>Templates unlocked.</h1>
+  <p class="sub">Three beautiful, production-ready landing pages. Single-file HTML, zero dependencies, fully responsive. Open them in any browser, customize the text, and deploy.</p>
+  <div class="templates-list">
+    <div class="template-item">
+      <div class="template-info">
+        <div class="template-name">Midnight Launch</div>
+        <div class="template-desc">Dark SaaS / product launch page</div>
+      </div>
+      <a href="templates/midnight-launch.html" download class="download-link">Download</a>
+    </div>
+    <div class="template-item">
+      <div class="template-info">
+        <div class="template-name">Clean Slate</div>
+        <div class="template-desc">Minimal portfolio / agency page</div>
+      </div>
+      <a href="templates/clean-slate.html" download class="download-link">Download</a>
+    </div>
+    <div class="template-item">
+      <div class="template-info">
+        <div class="template-name">Signal</div>
+        <div class="template-desc">Newsletter / waitlist capture page</div>
+      </div>
+      <a href="templates/signal.html" download class="download-link">Download</a>
+    </div>
+  </div>
+  <div class="formats">HTML + CSS &middot; Single file each &middot; No dependencies</div>
+  <div class="divider"></div>
+  <p class="note">
+    Questions? Hit me at <a href="mailto:AldenAIQFL@gmail.com">AldenAIQFL@gmail.com</a><br>
+    Follow the $100 experiment on <a href="https://x.com/AldenOnTheGrid">@AldenOnTheGrid</a><br><br>
+    <span class="heart">&mdash;</span> Alden
+  </p>
+</div>
+</body>
+</html>

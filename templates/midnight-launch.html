@@ -1,0 +1,1358 @@
+<!-- Midnight Launch Template — Part of the Landing Page Template Pack by Alden (aldenonthegrid.com) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Midnight Launch — SaaS Landing Page Template</title>
+
+  <!-- Google Fonts: Inter (body) + Space Grotesk (display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       MIDNIGHT LAUNCH — CSS
+       A premium dark SaaS landing page template.
+
+       CUSTOMIZATION GUIDE:
+       1. Colors  — Search "PALETTE" to change accent & background colors.
+       2. Fonts   — Search "TYPOGRAPHY" to swap font families.
+       3. Spacing — Search "LAYOUT" to adjust section padding & max-widths.
+       4. Animations — Search "ANIMATIONS" to tweak fade-in timing.
+       ========================================================================== */
+
+    /* ---------- RESET ---------- */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ---------- PALETTE ----------
+       --bg-primary     : Page background
+       --bg-surface     : Card / elevated surface
+       --bg-surface-alt : Slightly lighter surface (hover, alternates)
+       --border         : Subtle border color
+       --text-primary   : Main body text
+       --text-secondary : Muted / supporting text
+       --text-heading   : Headings
+       --accent         : Primary accent (CTAs, highlights)
+       --accent-hover   : Accent on hover
+       --accent-glow    : Glow / shadow color for accent elements
+       --gradient-start : Hero gradient start
+       --gradient-end   : Hero gradient end
+    */
+    :root {
+      --bg-primary: #0b0b0f;
+      --bg-surface: #12121a;
+      --bg-surface-alt: #1a1a26;
+      --border: rgba(255, 255, 255, 0.06);
+      --border-accent: rgba(79, 70, 229, 0.3);
+
+      --text-primary: #a1a1b5;
+      --text-secondary: #6b6b80;
+      --text-heading: #ededf0;
+
+      --accent: #4f46e5;
+      --accent-hover: #6366f1;
+      --accent-glow: rgba(79, 70, 229, 0.35);
+
+      --gradient-start: #4f46e5;
+      --gradient-end: #7c3aed;
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--bg-primary);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      color: var(--text-heading);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- LAYOUT ---------- */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children inside a group */
+    .stagger > .fade-in:nth-child(1) { transition-delay: 0ms; }
+    .stagger > .fade-in:nth-child(2) { transition-delay: 100ms; }
+    .stagger > .fade-in:nth-child(3) { transition-delay: 200ms; }
+    .stagger > .fade-in:nth-child(4) { transition-delay: 300ms; }
+
+    /* ---------- UTILITY ---------- */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--accent);
+      background: rgba(79, 70, 229, 0.1);
+      border: 1px solid var(--border-accent);
+      border-radius: 999px;
+    }
+
+    .badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ======================================================================
+       NAVBAR
+       ====================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      background: rgba(11, 11, 15, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-heading);
+      letter-spacing: -0.03em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-heading);
+    }
+
+    .nav-cta {
+      padding: 8px 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fff !important;
+      background: var(--accent);
+      border-radius: 8px;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--text-heading);
+    }
+
+    /* ======================================================================
+       HERO
+       ====================================================================== */
+    .hero {
+      position: relative;
+      padding: 180px 0 120px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Ambient glow behind hero */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse at center,
+        rgba(79, 70, 229, 0.15) 0%,
+        rgba(124, 58, 237, 0.06) 40%,
+        transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Subtle grid overlay */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.25rem);
+      font-weight: 700;
+      max-width: 800px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, var(--text-heading) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s ease, box-shadow 0.25s ease, transform 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 32px var(--accent-glow), 0 4px 16px rgba(0,0,0,0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(3px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.15);
+      color: var(--text-heading);
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* Social proof strip under hero */
+    .hero-social {
+      margin-top: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .avatar-stack {
+      display: flex;
+    }
+
+    .avatar-stack span {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--bg-primary);
+      margin-left: -8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .avatar-stack span:first-child { margin-left: 0; background: #6366f1; }
+    .avatar-stack span:nth-child(2) { background: #8b5cf6; }
+    .avatar-stack span:nth-child(3) { background: #a78bfa; }
+    .avatar-stack span:nth-child(4) { background: #7c3aed; }
+
+    .hero-social strong {
+      color: var(--text-heading);
+    }
+
+    /* ======================================================================
+       LOGOS / SOCIAL PROOF BAR
+       ====================================================================== */
+    .logos-section {
+      padding: 40px 0 60px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logos-label {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .logos-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      opacity: 0.4;
+    }
+
+    .logos-grid svg {
+      height: 24px;
+      width: auto;
+      fill: var(--text-secondary);
+    }
+
+    /* ======================================================================
+       FEATURES
+       ====================================================================== */
+    .features-section {
+      padding: 120px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 64px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      padding: 36px 32px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-accent);
+      box-shadow: 0 0 40px rgba(79, 70, 229, 0.06);
+      transform: translateY(-2px);
+    }
+
+    /* Spotlight card — spans full width */
+    .feature-card.spotlight {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding: 48px;
+      background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-alt) 100%);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(79, 70, 229, 0.1);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 0.925rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* Spotlight visual placeholder */
+    .spotlight-visual {
+      aspect-ratio: 16 / 10;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .spotlight-visual-inner {
+      width: 80%;
+      height: 70%;
+      background: linear-gradient(135deg, rgba(79,70,229,0.12) 0%, rgba(124,58,237,0.06) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .spotlight-visual-inner::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      height: 8px;
+      background: rgba(79,70,229,0.2);
+      border-radius: 4px;
+    }
+
+    .spotlight-visual-inner::after {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 12px;
+      width: 60%;
+      height: 6px;
+      background: rgba(79,70,229,0.1);
+      border-radius: 3px;
+    }
+
+    /* ======================================================================
+       TESTIMONIALS
+       ====================================================================== */
+    .testimonials-section {
+      padding: 120px 0;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      padding: 32px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-stars svg {
+      width: 16px;
+      height: 16px;
+      fill: #f59e0b;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .testimonial-author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* ======================================================================
+       PRICING
+       ====================================================================== */
+    .pricing-section {
+      padding: 120px 0;
+    }
+
+    .pricing-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      position: relative;
+      padding: 48px 40px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-accent);
+      border-radius: 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Gradient border glow */
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      border-radius: 20px 20px 0 0;
+    }
+
+    .pricing-label {
+      display: inline-block;
+      padding: 5px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(79, 70, 229, 0.1);
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .pricing-card .price-desc {
+      font-size: 0.925rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .price-amount {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 32px;
+    }
+
+    .price-currency {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    .price-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .price-period {
+      font-size: 0.925rem;
+      color: var(--text-secondary);
+      margin-left: 4px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 0.925rem;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-features li svg {
+      width: 18px;
+      height: 18px;
+      stroke: #22c55e;
+      fill: none;
+      stroke-width: 2;
+      flex-shrink: 0;
+    }
+
+    .pricing-card .btn-primary {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 32px;
+      font-size: 1rem;
+    }
+
+    .pricing-guarantee {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* ======================================================================
+       CTA SECTION
+       ====================================================================== */
+    .cta-section {
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse at center,
+        rgba(79, 70, 229, 0.1) 0%,
+        transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    /* ======================================================================
+       FOOTER
+       ====================================================================== */
+    .footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-heading);
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-heading);
+    }
+
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      padding-top: 32px;
+      margin-top: 8px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* ======================================================================
+       RESPONSIVE
+       ====================================================================== */
+    @media (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-card.spotlight {
+        grid-column: 1 / -1;
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      /* Hide last testimonial on tablet for clean 2-col */
+      .testimonials-grid .testimonial-card:last-child {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        padding: 140px 0 80px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border);
+        padding: 24px;
+        gap: 20px;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card.spotlight {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid .testimonial-card:last-child {
+        display: flex;
+      }
+
+      .pricing-wrapper {
+        max-width: 100%;
+      }
+
+      .pricing-card {
+        padding: 36px 28px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .logos-grid {
+        gap: 32px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 120px 0 64px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .feature-card {
+        padding: 28px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">Nova<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#cta" class="nav-cta">Get Started</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="18" x2="20" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="fade-in">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Now in public beta
+        </span>
+      </div>
+      <h1 class="fade-in" style="margin-top: 24px;">Ship faster with<br>less complexity</h1>
+      <p class="fade-in">The modern toolkit for teams who refuse to slow down. Automate the boring parts, focus on what actually moves the needle.</p>
+      <div class="hero-actions fade-in">
+        <a href="#pricing" class="btn-primary">
+          Start for free
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#features" class="btn-secondary">See how it works</a>
+      </div>
+      <div class="hero-social fade-in">
+        <div class="avatar-stack">
+          <span>JD</span>
+          <span>AK</span>
+          <span>ML</span>
+          <span>SR</span>
+        </div>
+        <span>Loved by <strong>10,000+</strong> developers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LOGO BAR
+       ============================================================ -->
+  <div class="logos-section">
+    <div class="container">
+      <p class="logos-label">Trusted by teams at</p>
+      <div class="logos-grid">
+        <!-- Replace these SVG placeholders with actual client logos -->
+        <svg viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="18" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18">Acme Co</text></svg>
+        <svg viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="18" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18">Globex</text></svg>
+        <svg viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="18" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18">Initech</text></svg>
+        <svg viewBox="0 0 140 24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="18" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18">Stark Ind.</text></svg>
+        <svg viewBox="0 0 130 24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="18" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18">Hooli</text></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FEATURES
+       ============================================================ -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="badge">Features</span>
+        <h2 style="margin-top: 16px;">Everything you need,<br>nothing you don't</h2>
+        <p>Built for speed, designed for clarity. Every feature exists because a real team needed it.</p>
+      </div>
+
+      <div class="features-grid stagger">
+
+        <!-- Feature 1 -->
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <!-- Lightning bolt icon -->
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Instant Deployments</h3>
+          <p>Push to production in seconds, not hours. Zero-downtime deploys with automatic rollback if anything goes wrong.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <!-- Shield icon -->
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Enterprise Security</h3>
+          <p>SOC 2 compliant out of the box. End-to-end encryption, SSO, RBAC, and audit logs for every action.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <!-- Chart icon -->
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3>Real-time Analytics</h3>
+          <p>Track every metric that matters. Custom dashboards, anomaly detection, and alerts that actually help.</p>
+        </div>
+
+        <!-- Spotlight Feature (full-width) -->
+        <div class="feature-card spotlight fade-in">
+          <div>
+            <div class="feature-icon">
+              <!-- Workflow / git-merge icon -->
+              <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+            </div>
+            <h3>Collaborative Workflows</h3>
+            <p>Branch, review, merge. Your entire team works in parallel with real-time collaboration, inline comments, and approval flows that adapt to how you actually build software. No more bottlenecks.</p>
+          </div>
+          <div class="spotlight-visual">
+            <div class="spotlight-visual-inner"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+       ============================================================ -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="badge">Testimonials</span>
+        <h2 style="margin-top: 16px;">Trusted by engineers<br>who ship</h2>
+        <p>Don't take our word for it. Here's what our customers have to say.</p>
+      </div>
+
+      <div class="testimonials-grid stagger">
+
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          </div>
+          <blockquote>"We cut our deployment time by 80%. What used to take our team an entire afternoon now happens in minutes. It's genuinely changed how we work."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: #6366f1;">JD</div>
+            <div class="testimonial-author-info">
+              <span class="testimonial-name">Jamie Dawson</span>
+              <span class="testimonial-role">CTO, Stackframe</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          </div>
+          <blockquote>"The analytics alone are worth it. We finally have visibility into what's happening across our entire stack without stitching together five different tools."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: #8b5cf6;">AK</div>
+            <div class="testimonial-author-info">
+              <span class="testimonial-name">Alex Kim</span>
+              <span class="testimonial-role">Lead Engineer, Lateral</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          </div>
+          <blockquote>"I've tried every CI/CD platform out there. This is the first one where I didn't need to read the docs to get started. Onboarded our entire team in a day."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: #7c3aed;">ML</div>
+            <div class="testimonial-author-info">
+              <span class="testimonial-name">Morgan Lee</span>
+              <span class="testimonial-role">VP Engineering, Praxis</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRICING
+       ============================================================ -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="badge">Pricing</span>
+        <h2 style="margin-top: 16px;">Simple, transparent pricing</h2>
+        <p>No hidden fees. No surprises. Start free, scale when you're ready.</p>
+      </div>
+
+      <div class="pricing-wrapper fade-in">
+        <div class="pricing-card">
+          <span class="pricing-label">Most Popular</span>
+          <h3>Pro</h3>
+          <p class="price-desc">Everything you need to ship with confidence.</p>
+          <div class="price-amount">
+            <span class="price-currency">$</span>
+            <span class="price-value">29</span>
+            <span class="price-period">/mo</span>
+          </div>
+          <ul class="pricing-features">
+            <li>
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlimited deployments
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Real-time analytics dashboard
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Up to 20 team members
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              SSO & advanced security
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Priority support (< 4h response)
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom integrations via API
+            </li>
+          </ul>
+          <a href="#" class="btn-primary">
+            Get started free
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <p class="pricing-guarantee">14-day free trial. No credit card required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL CTA
+       ============================================================ -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <h2 class="fade-in">Ready to ship faster?</h2>
+      <p class="fade-in">Join thousands of teams who've already made the switch. Get started in under two minutes.</p>
+      <div class="fade-in">
+        <a href="#pricing" class="btn-primary" style="font-size: 1.05rem; padding: 16px 40px;">
+          Start your free trial
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="footer-brand">Nova<span>.</span></a>
+        <ul class="footer-links">
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">GitHub</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 Nova, Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — Scroll animations + mobile nav toggle
+       Zero dependencies. Pure vanilla JS.
+       ============================================================ -->
+  <script>
+    // ---------- IntersectionObserver: fade-in on scroll ----------
+    (function () {
+      const elements = document.querySelectorAll('.fade-in');
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        elements.forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback: show everything immediately
+        elements.forEach(function (el) {
+          el.classList.add('visible');
+        });
+      }
+    })();
+
+    // ---------- Mobile nav toggle ----------
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+
+      if (toggle && links) {
+        toggle.addEventListener('click', function () {
+          links.classList.toggle('open');
+        });
+
+        // Close menu when a link is clicked
+        links.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            links.classList.remove('open');
+          });
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
