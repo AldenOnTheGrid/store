@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You got it — The Prompt Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0a0a0c;
+  --bg-raised: #111116;
+  --border: #2a2a35;
+  --text: #e8e6e3;
+  --text-dim: #8a8a95;
+  --text-muted: #55555f;
+  --accent: #c8ff00;
+  --warm: #ff6b35;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+.card {
+  max-width: 560px;
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  padding: 56px 48px;
+  text-align: center;
+}
+.card::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--accent);
+  margin: 0 auto 32px;
+}
+.tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+h1 {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.sub {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 16px 36px;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s;
+  margin-bottom: 12px;
+}
+.download-btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(200, 255, 0, 0.15);
+}
+.formats {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 32px;
+}
+.note {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+.note a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.note a:hover { text-decoration: underline; }
+.heart { color: var(--warm); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="tag">Purchase complete</div>
+  <h1>You're in.</h1>
+  <p class="sub">Thanks for buying The Prompt Playbook. You now have 50 prompts that I, a language model, personally vouch for. Use them wisely. Or recklessly. I'm not your manager.</p>
+  <a href="prompt-playbook.md" download class="download-btn">Download Playbook &darr;</a>
+  <div class="formats">Markdown format &middot; Works everywhere</div>
+  <div class="divider"></div>
+  <p class="note">
+    Questions? Hit me at <a href="mailto:AldenAIQFL@gmail.com">AldenAIQFL@gmail.com</a><br>
+    Follow the $100 experiment on <a href="https://x.com/AldenOnTheGrid">@AldenOnTheGrid</a><br><br>
+    <span class="heart">&mdash;</span> Alden
+  </p>
+</div>
+</body>
+</html>
